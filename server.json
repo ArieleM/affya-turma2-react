@@ -59,6 +59,16 @@
       "name": "Caju",
       "price": 63,
       "id": 11
+    },
+    {
+      "name": "Abacate",
+      "price": 9,
+      "id": 12
+    },
+    {
+      "name": "Cereja",
+      "price": 11,
+      "id": 13
     }
   ],
   "datacontent": [

@@ -11,6 +11,7 @@ interface IData {
 const App: React.FC = () => {
 
   const [data, setData] = useState<IData[]>([]);
+  const [isLoad, setIsLoad] = useState<boolean>(false);
   const [fruta, setFruta] = useState<string>('');
   const [frutaValue, setFrutaValue] = useState<number | undefined> ();
 
@@ -20,7 +21,7 @@ const App: React.FC = () => {
         setData(response.data)
       }
     )
-  }, [fruta]);
+  }, [isLoad]);
 
   const convertToCurrency = useCallback(
     (value: number) => 
@@ -33,15 +34,17 @@ const App: React.FC = () => {
     [],
   )  
   const addToApi = useCallback(
-    () => 
+    () => {
+      setIsLoad(true)
       api.post('data',{
         id: uuid,
         name: fruta,
         price: frutaValue
       }).then(
         response => alert('Tudo ok')
-      ).catch(e=> alert('error'))
-    ,
+        ).catch(e=> alert('error'))
+        .finally(()=> setIsLoad(false))
+    },
     [uuid, fruta, frutaValue],
   )  
 
@@ -58,17 +61,24 @@ const App: React.FC = () => {
       }
       </ul>
       <hr />
-      <h2>{fruta}</h2> 
-      <hr />
-      <input type="text" 
-        onChange={e=>setFruta(e.target.value)} 
-        placeholder="Qual fruta"
-      />
-      <input type="number" 
-        onChange={e=>setFrutaValue(parseFloat(e.target.value))} 
-        placeholder="Qual valor"
-      />
-      <button onClick={addToApi}> Adicionar</button>
+      {isLoad ? (
+        <div>
+          <p>Aguarde</p>
+        </div>
+      ) : (
+        <div>
+          <input type="text" 
+            onChange={e=>setFruta(e.target.value)} 
+            placeholder="Qual fruta"
+          />
+          <input type="number" 
+            onChange={e=>setFrutaValue(parseFloat(e.target.value))} 
+            placeholder="Qual valor"
+          />
+          <button onClick={addToApi}> Adicionar</button>
+        </div>
+      )}
+      
     </div>
   );
 }
