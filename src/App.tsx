@@ -1,24 +1,74 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect, useCallback } from 'react';
+import {uuid} from 'uuidv4';
+import { api } from './service/api';
 
-function App() {
+interface IData {
+  id: string,
+  name: string,
+  price: number
+}
+
+const App: React.FC = () => {
+
+  const [data, setData] = useState<IData[]>([]);
+  const [fruta, setFruta] = useState<string>('');
+  const [frutaValue, setFrutaValue] = useState<number | undefined> ();
+
+  useEffect(() => {
+    api.get('data').then(
+      response => {
+        setData(response.data)
+      }
+    )
+  }, [fruta]);
+
+  const convertToCurrency = useCallback(
+    (value: number) => 
+      Intl.NumberFormat('pt-br', 
+      {
+        style: 'currency',
+        currency:'BRL'
+      }).format(value)
+    ,
+    [],
+  )  
+  const addToApi = useCallback(
+    () => 
+      api.post('data',{
+        id: uuid,
+        name: fruta,
+        price: frutaValue
+      }).then(
+        response => alert('Tudo ok')
+      ).catch(e=> alert('error'))
+    ,
+    [uuid, fruta, frutaValue],
+  )  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hello tu</h1>
+      <ul>
+      {
+        data.map( fruta => (
+          <li key={fruta.id}>
+            {fruta.name} | {convertToCurrency(fruta.price)}
+          </li>
+        ))
+      }
+      </ul>
+      <hr />
+      <h2>{fruta}</h2> 
+      <hr />
+      <input type="text" 
+        onChange={e=>setFruta(e.target.value)} 
+        placeholder="Qual fruta"
+      />
+      <input type="number" 
+        onChange={e=>setFrutaValue(parseFloat(e.target.value))} 
+        placeholder="Qual valor"
+      />
+      <button onClick={addToApi}> Adicionar</button>
     </div>
   );
 }
