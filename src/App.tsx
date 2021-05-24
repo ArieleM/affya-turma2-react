@@ -60,7 +60,7 @@ const App: React.FC = () => {
         <div className="container">
           <div>
             <h1>Fruit List</h1>
-            <p>Você tem x frutas na sua lista</p>
+            <p>Você tem <span>x</span> frutas na sua lista</p>
 
           </div>
           <hr />

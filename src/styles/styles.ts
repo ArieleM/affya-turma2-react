@@ -4,6 +4,20 @@ export const Header = styled.header`
   background-color: #41414C;
   width: 100%;
   height: 30vh;
+  div{
+    div{  
+      &:nth-child(1){
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #FCFDFF;
+        span{
+          color: red;
+        }        
+      }
+    }
+  }
 `;
 export const List = styled.main`
   height: 70vh;
