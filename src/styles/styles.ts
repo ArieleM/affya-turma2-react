@@ -4,19 +4,36 @@ export const Header = styled.header`
   background-color: #41414C;
   width: 100%;
   height: 30vh;
-  div{
-    div{  
-      &:nth-child(1){
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: #FCFDFF;
-        span{
-          color: red;
-        }        
-      }
-    }
+`;
+export const TitleHeader = styled.div`
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FCFDFF;
+  span{
+    color: red;
+  }      
+`;
+export const ContentHeader = styled.div`
+  width: 70%;
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: space-around;
+  input, button{
+    border-radius: 5px;
+    border: none;
+  }
+  input{
+    padding: 0 10px;
+  }
+  button{
+    background-color: orange;
+    height: 50px;
+    width: 200px;
+    color: #FCFDFF;
+    text-transform: uppercase;
+    font-weight: 900;
   }
 `;
 export const List = styled.main`

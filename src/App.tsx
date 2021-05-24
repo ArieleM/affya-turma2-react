@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import {uuid} from 'uuidv4';
 import { api } from './service/api';
-import { Fruit, Header, Legend, List } from './styles/styles';
+import { Fruit, Header, Legend, List, TitleHeader, ContentHeader } from './styles/styles';
 import GlobalStyles from './styles/global';
 
 interface IData {
@@ -58,28 +58,27 @@ const App: React.FC = () => {
     
       <Header>
         <div className="container">
-          <div>
+          <TitleHeader>
             <h1>Fruit List</h1>
             <p>Você tem <span>x</span> frutas na sua lista</p>
-
-          </div>
+          </TitleHeader>
           <hr />
           {isLoad ? (
             <div>
               <p>Aguarde</p>
             </div>
           ) : (
-            <div>
+            <ContentHeader>
               <input type="text" 
                 onChange={e=>setFruta(e.target.value)} 
-                placeholder="Qual fruta"
+                placeholder="Qual fruta?"
                 />
               <input type="number" 
                 onChange={e=>setFrutaValue(parseFloat(e.target.value))} 
-                placeholder="Qual valor"
+                placeholder="Qual valor?"
                 />
               <button onClick={addToApi}> Adicionar</button>
-            </div>
+            </ContentHeader>
           )}
         </div>
       </Header>
