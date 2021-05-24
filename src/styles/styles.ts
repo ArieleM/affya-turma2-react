@@ -1,23 +1,30 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  background-color: #41414C;
+  background-color: #A0E7E5;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
+  hr{
+    border-color: #FBE7C6;
+  }
 `;
 export const TitleHeader = styled.div`
-  height: 100px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #FCFDFF;
   span{
-    color: red;
-  }      
+    color: #FFAEBC;
+    font-weight: 900;
+    font-size: 24px;
+  }
+  p{
+    color: #868B8E;
+  }    
 `;
 export const ContentHeader = styled.div`
   width: 70%;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
   display: flex;
   justify-content: space-around;
   input, button{
@@ -28,17 +35,21 @@ export const ContentHeader = styled.div`
     padding: 0 10px;
   }
   button{
-    background-color: orange;
-    height: 50px;
-    width: 200px;
+    background-color:#FFAEBC;
+    height: 40px;
+    width: 180px;
     color: #FCFDFF;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 700;
   }
 `;
 export const List = styled.main`
   height: 70vh;
+  background-color: #FBE7C6;
   ul{
+    position: absolute;
+    left: 0;
+    right: 0;
     margin-top: -70px;
   }
 `;
@@ -47,7 +58,7 @@ export const Fruit = styled.li`
   height: 66px;
   background-color: #FCFDFF;
   margin: 10px 0;
-  border: 1px solid #E1E3E6;
+  border: 1px solid #B4F8C8;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -63,14 +74,13 @@ export const Fruit = styled.li`
   }
 `;
 export const Legend = styled.div`
-  color: #FCFDFF;
-  margin: 10px 0;
+  margin: 5px 0;
   display: flex;
   align-items: center;
   padding: 0 20px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
   p{

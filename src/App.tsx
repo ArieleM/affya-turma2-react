@@ -60,7 +60,7 @@ const App: React.FC = () => {
         <div className="container">
           <TitleHeader>
             <h1>Fruit List</h1>
-            <p>Você tem <span>x</span> frutas na sua lista</p>
+            <p>Você tem <span>5</span> frutas na sua lista</p>
           </TitleHeader>
           <hr />
           {isLoad ? (
