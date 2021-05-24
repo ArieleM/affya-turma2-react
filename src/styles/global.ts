@@ -13,7 +13,7 @@ export default createGlobalStyle `
   }
 
   .container{
-    width: 75%;
+    width: 60%;
     margin: auto;
   }
 `;

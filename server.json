@@ -1,81 +1,10 @@
 {
   "data": [
     {
-      "id": 0,
-      "name": "Uva",
-      "price": 5
-    },
-    {
-      "id": 1,
-      "name": "Manga",
-      "price": 4
-    },
-    {
-      "id": 2,
-      "name": "Abacaxi",
-      "price": 8
-    },
-    {
-      "id": 3,
-      "name": "Maçã",
-      "price": 2
-    },
-    {
-      "id": 4,
-      "name": "Pêra",
-      "price": 9
-    },
-    {
-      "id": 5,
-      "name": "Jaca",
-      "price": 10
-    },
-    {
       "name": "Morango",
-      "price": 5,
-      "id": 6
-    },
-    {
-      "name": "Morango",
-      "price": 500,
-      "id": 7
-    },
-    {
-      "name": "Morango",
-      "price": 500,
-      "id": 8
-    },
-    {
-      "name": "Morango",
-      "price": 500,
-      "id": 9
-    },
-    {
-      "name": "Pera",
-      "price": 6,
-      "id": 10
-    },
-    {
-      "name": "Caju",
-      "price": 63,
-      "id": 11
-    },
-    {
-      "name": "Abacate",
       "price": 9,
-      "id": 12
-    },
-    {
-      "name": "Cereja",
-      "price": 11,
-      "id": 13
-    }
-  ],
-  "datacontent": [
-    {
-      "id": 0,
-      "name": "Tester",
-      "price": 1000
+      "date": "23/05/2021",
+      "id": 1
     }
   ]
 }
